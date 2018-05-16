@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+<!--https://docs.djangoproject.com/en/1.11/topics/auth/default/-->
+<!-- Head -->
+
+{% block head %}
+<link rel="stylesheet" href="{% static " css/dashboard.css " %}" type="text/css" />
+<title>Automation Integrity - {{ company.name }} Information</title>
+{% endblock %}
+
+<!-- Header -->
+{% block headerMessage %}
+{{ company.name }}
+{% endblock %}
+
+{% block headerMenu %}
+<li class="submenu">
+  <a href="#">SITES</a>
+  <ul>
+    &nbsp;{{ company.name }} {% for site in sites %}
+    <li>
+      <a href="{% url 'customers:site-detail' site.id %}">{{ site.address.city }}, {{ site.address.state }} {{ site.address.country }}</a>
+    </li>
+    {% endfor %}
+    <ul>
+</li>
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+<!-- Main -->
+{% block mainHeader %}
+{% endblock %}
+
+{% block contentSec1 %}
+<div class="container-fluid">
+  <div class="row">
+    <main role="main" class="col-xs-12">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <th>
+              <strong>
+                {% if company.website %}
+                  {{ company.name }}
+                  <a href=" {{ company.website }} ">
+                    &nbsp;<span class="glyphicon glyphicon-globe"></span>
+                  </a>
+                {% else %}
+                  {{ company.name }}
+                {% endif %}
+              </strong>
+            </th>
+            <th>
+              <strong>Customer Since: {{ company.since }}</strong>
+            </th>
+            <th>
+              <strong>Current Rate: ${{ company.rate }}</strong>
+            </th>
+          </thead>
+          <tbody>
+            <tr>
+            </tr>
+          </tbody>
+        </table>
+        <center><h2>REPORTS</h2></center>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Report Date</th>
+                <th>Site</th>
+                <th>Equipment</th>
+                <th>Time</th>
+                <th>Charge</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for report in reports %}
+                <tr>
+                  <td><a href="{% url 'service:report-detail' report.report_number %}">{{ report.reported_date }}</a></td>
+                  <td>{{ report.site.address }}</td>
+                  <td>{{ report.equipment }}</td>
+                  <td>{# report.reported_date #}</td>
+                  <td>{# report.reported_date #}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </main>
+    </div>
+  </div>
+  {% endblock %}
+  {% block contentSec2 %}
+  {% endblock %}
+  {% block contentSec3 %}
+  {% endblock %}
+  {% block contentSec4 %}
+  {% endblock %}
+
+
+  <!-- CTA -->
+
+  {% block cta %}
+  {% endblock %}
+
+  <!-- Footer -->
+
+  {% block footer %}
+  {% endblock %}
+  {% block scripts %}
+  {% endblock %}

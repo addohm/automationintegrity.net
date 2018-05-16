@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+<!--https://docs.djangoproject.com/en/1.11/topics/auth/default/-->
+<!-- Head -->
+
+{% block head %}
+<link rel="stylesheet" href="{% static " css/dashboard.css " %}" type="text/css" />
+<title>Automation Integrity - Customer Dashboard</title>
+{% endblock %}
+
+<!-- Header -->
+{% block headerMessage %}
+
+{% endblock %}
+
+
+{% block banner %}
+{% endblock %}
+
+<!-- Main -->
+{% block mainHeader %}
+{% endblock %}
+
+{% block contentSec1 %}
+<div class="container-fluid">
+  <div class="row">
+    <main role="main" class="col-xs-12">
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <th>
+              <strong>
+                {% if site.company.website %}
+                  {{ site.company.name }}
+                  <a href=" {{ site.company.website }} ">
+                    &nbsp;<span class="glyphicon glyphicon-globe"></span>
+                  </a>
+                {% else %}
+                  {{ site.company.name }}
+                {% endif %}
+              </strong>
+            </th>
+            <th>
+              <strong>Customer Since: {{ site.company.since }}</strong>
+            </th>
+            <th>
+              <strong>Current Rate: ${{ site.company.rate }}</strong>
+            </th>
+          </thead>
+        </table>
+        <table class="table table-striped">
+          <thead>
+            <th>
+              Address
+            </th>
+            <th>
+              Phone
+            </th>
+            <th>
+              Distance (mi)
+            </th>
+          </thead>
+          <tbody>
+            <th>
+              {{ site.address }}
+            </th>
+            <th>
+              {{ site.phone }}
+            </th>
+            <th>
+              {{ site.distance }}
+            </th>
+          </tbody>
+        </table>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Report Date</th>
+                <th>Contact</th>
+                <th>Equipment</th>
+                <th>Time</th>
+                <th>Charge</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for report in reports %}
+                <tr>
+                  <td><a href="{% url 'service:report-detail' report.report_number %}">{{ report.reported_date }}</a></td>
+                  <td>
+                    {% for contact in contacts %}
+                      {{ contact.first_name}}
+                      {{ contact.last_name}}
+                    {% endfor %}
+                  </td>
+                  <td>{{ report.equipment }}</td>
+                  <td>{# report.reported_date #}</td>
+                  <td>{# report.reported_date #}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+    </main>
+    </div>
+  </div>
+  {% endblock %}
+  {% block contentSec2 %}
+  {% endblock %}
+  {% block contentSec3 %}
+  {% endblock %}
+  {% block contentSec4 %}
+  {% endblock %}
+
+
+  <!-- CTA -->
+
+  {% block cta %}
+  {% endblock %}
+
+  <!-- Footer -->
+
+  {% block footer %}
+  {% endblock %}
+  {% block scripts %}
+  {% endblock %}

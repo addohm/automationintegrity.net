@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+<!--https://docs.djangoproject.com/en/1.11/topics/auth/default/-->
+<!-- Head -->
+
+{% block head %}
+<title>Automation Integrity - Company List</title>
+{% endblock %}
+
+<!-- Header -->
+{% block headerMessage %}
+  Company List
+{% endblock %}
+
+
+{% block banner %}
+{% endblock %}
+
+<!-- Main -->
+{% block mainHeader %}
+{% endblock %}
+
+{% block contentSec1 %}
+<div class="container-fluid">
+  <div class="row">
+    <main role="main" class="col-xs-12">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th><strong>Company</strong></th>
+                <th><strong>Website</strong></th>
+                <th><strong></strong></th>
+                <th><strong></strong></th>
+                <th><strong>Rate</strong></th>
+              </tr>
+            </thead>
+            <tbody>
+              {# {% for site in company.sites.all %}#}
+                {% for company in object_list %}
+                  <tr>
+                    <td>
+                      <a href="{% url 'customers:company-detail' company.id %}">
+                        {{ company.name }}
+                      </a>
+                    </td>
+                    <td>
+                      {% if company.website %}
+                        <a href=" {{ company.website }} ">
+                          &nbsp;<span class="glyphicon glyphicon-globe"></span>
+                        </a>
+                      {% endif %}
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td>{{ company.rate }}</td>
+                  </tr>
+                {% endfor %}
+              {# {% endfor %}#}
+            </tbody>
+          </table>
+        </div>
+    </main>
+    </div>
+  </div>
+  {% endblock %}
+  {% block contentSec2 %}
+  {% endblock %}
+  {% block contentSec3 %}
+  {% endblock %}
+  {% block contentSec4 %}
+  {% endblock %}
+
+
+  <!-- CTA -->
+
+  {% block cta %}
+  {% endblock %}
+
+  <!-- Footer -->
+
+  {% block footer %}
+  {% endblock %}
+  {% block scripts %}
+  {% endblock %}

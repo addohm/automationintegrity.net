@@ -1,0 +1,156 @@
+{% extends 'base.html' %}
+{% load static %}
+ <!--https://docs.djangoproject.com/en/1.11/topics/auth/default/-->
+<!-- Head -->
+
+{% block head %}
+   <link rel="stylesheet" href="{% static "css/report_form.css" %}" type="text/css" />
+   <link rel="stylesheet" href="{% static "css/jquery.datetimepicker.css" %}" type="text/css" />
+<!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">-->
+   <title>Automation Integrity - Service Report Form</title>
+{% endblock %}
+
+<!-- Header -->
+{% block headerMessage %}
+   <li class="current">
+      <a href=" {% url 'main' %} ">Return to Home Page</a>
+   </li>
+{% endblock %}
+{# block headerMenu #}
+{# endblock #}
+{% block banner %}
+{% endblock %}
+
+<!-- Main -->
+{% block mainHeader %}
+{% endblock %}
+   {% block contentSec1 %}
+   <section class="wrapper style4 container 75%">
+
+        <form method="POST" action="">
+            {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group col-md-6 form-col-md form-col-left-just {% if form.site.errors %}bg-danger{% endif %}">
+              <label for="{{ form.site.id_for_label }}"><Strong>Site</Strong></label>
+                {{ form.site }}
+            </div>
+            <div class="form-group col-md-6 form-col-md form-col-right-just {% if form.request_number.errors %}bg-danger{% endif %}">
+              <label for="{{ form.request_number.id_for_label }}"><Strong>Request Number</Strong></label>
+                {{ form.request_number }}
+            </div>
+          </div>
+            <div class="form-row">
+            <div class="form-group col-md-6 form-col-md form-col-left-just {% if form.reported_by.errors %}bg-danger{% endif %}">
+              <label for="{{ form.reported_by.id_for_label }}"><Strong>Reporter</Strong></label>
+                {{ form.reported_by }}
+            </div>
+            <div class="form-group col-md-6 form-col-md form-col-right-just {% if form.equipment.errors %}bg-danger{% endif %}">
+              <label for="{{ form.equipment.id_for_label }}"><Strong>Equipment</Strong></label>
+                {{ form.equipment }}
+            </div>
+          </div>
+          <div class="form-group {% if form.report_reason.errors %}bg-danger{% endif %}">
+            <label for="{{ form.report_reason.id_for_label }}"><Strong>Report Reason</Strong></label>
+            {{ form.report_reason }}
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <table class="table table-striped">
+                <thead class="thead-inverse">
+                  <th class="punchmodify"></th>
+                  <th class="datetime"><u>Date</u></th>
+                  <th class="datetime"><u>Time In</u></th>
+                  <th class="datetime"><u>Time Out</u></th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="punchmodify">
+                      <a href="#">
+                          <button type="button" class="btn btn-primary btn-sm btn-update">
+                              Update
+                          </button>
+                      </a>
+                    </td>
+                    <td class="datetime">12Dec17</td>
+                    <td class="datetime">1:15 PM</td>
+                    <td class="datetime">7:15 PM</td>
+                  </tr>
+                  <tr>
+                    <td class="punchmodify">
+                      <a href="#">
+                          <button type="button" class="btn btn-primary btn-sm btn-update">
+                              Update
+                          </button>
+                      </a>
+                    </td>
+                    <td class="datetime">15Dec17</td>
+                    <td class="datetime">1:00 PM</td>
+                    <td class="datetime">8:00 PM</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="form-group">
+              <a href="#">
+                <center>
+                  <button class="btn btn-primary btn-detail"><Strong>Add</Strong></button>
+                </center>
+              </a>
+            </div>
+
+               <!-- <div class="form-group col-md-6 form-col-md form-col-left-just {% if form.time_in.errors %}bg-danger{% endif %}">
+               <label for="{{ form.time_in.id_for_label }}"><Strong>Punch In</Strong></label>
+               <input type="text" name="time_in" id="datetimepicker3"/>
+                {# form.time_in #}
+                <div class="form-group col-md-6 form-col-right-just {% if form.time_out.errors %}bg-danger{% endif %}">
+                 <label for="{{ form.time_out.id_for_label }}"><Strong>Punch Out</Strong></label>
+                <input type="text" name="time_out" id="datetimepicker4"/>
+                {# form.time_out #}
+            </div>-->
+          </div>
+          <div class="form-group {% if form.actions_taken.errors %}bg-danger{% endif %}">
+            <label for="{{ form.reason.actions_taken }}"><Strong>Actions Taken</Strong></label>
+            {{ form.actions_taken }}
+          </div>
+          <div class="form-group {% if form.recommendations.errors %}bg-danger{% endif %}">
+            <label for="{{ form.reason.recommendations }}"><Strong>Recommendations</Strong></label>
+            {{ form.recommendations }}
+          </div>
+          <button type="submit" class="btn btn-primary btn-detail"><Strong>Submit</Strong></button>
+        </form>
+
+   </section>
+{% endblock %}
+{% block contentSec2 %}
+{% endblock %}
+{% block contentSec3 %}
+{% endblock %}
+{% block contentSec4 %}
+{% endblock %}
+
+
+<!-- CTA -->
+
+{% block cta %}
+{% endblock %}
+
+<!-- Footer -->
+
+{% block footer %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static "js/jquery.datetimepicker.full.min.js" %} "></script>
+<script>
+jQuery('#datetimepicker3').datetimepicker({
+  format:'d.m.Y H:i',
+  inline:true,
+  lang:'en'
+});
+jQuery('#datetimepicker4').datetimepicker({
+  format:'Y-m-d H:i',
+  inline:true,
+  lang:'en'
+});
+</script>
+{% endblock %}

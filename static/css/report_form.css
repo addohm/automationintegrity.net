@@ -1,0 +1,33 @@
+.form-col-md {
+margin: 0;
+padding: 0;
+}
+
+.form-col-left-just {
+padding: 0.0em 0.0em 0.0em 0.0em;
+}
+
+.form-col-right-just {
+padding: 0.0em 0.0em 0.0em 0.0em;
+}
+
+.form-col-cent-just {
+padding: 0.0em 0.0em 0.0em 0.0em;
+}
+
+
+@media screen and (min-width: 992px) {
+
+    .form-col-left-just {
+    padding: 0.0em 0.3em 0.0em 0.0em;
+    }
+
+    .form-col-right-just {
+    padding: 0.0em 0.0em 0.0em 0.3em;
+    }
+
+    .form-col-cent-just {
+    padding: 0.0em 0.0em 0.0em 0.0em;
+    }
+
+}

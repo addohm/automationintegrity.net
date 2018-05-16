@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!-- Head -->
+
+{% block head %}
+   <title>Automation Integrity - Login</title>
+{% endblock %}
+
+<!-- Header -->
+{% block headerMessage %}
+   <li class="current"><a href=" {% url 'main' %} ">Return to Home Page</a></li>
+{% endblock %}
+
+{% block banner %}
+
+   <!-- <h2>Login</h2>
+   <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Login</button>
+   </form> -->
+{% endblock %}
+
+<!-- Main -->
+{% block mainHeader %}
+{% endblock %}
+
+{% block contentSec1 %}								
+<section class="wrapper style4 special container 75%">
+
+<!-- Content -->
+	<div class="content">
+		<form>
+			<div class="row 50%">
+				<div class="6u 12u(mobile)">
+					<input type="text" name="name" placeholder="Name" />
+				</div>
+				<div class="6u 12u(mobile)">
+					<input type="text" name="email" placeholder="Email" />
+				</div>
+			</div>
+			<div class="row 50%">
+				<div class="12u">
+					<input type="text" name="subject" placeholder="Subject" />
+				</div>
+			</div>
+			<div class="row 50%">
+				<div class="12u">
+					<textarea name="message" placeholder="Message" rows="7"></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="12u">
+					<ul class="buttons">
+						<li><input type="submit" class="special" value="Send Message" /></li>
+					</ul>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</section>
+{% endblock %}
+
+{% block contentSec2 %}
+
+{% endblock %}
+
+{% block contentSec3 %}
+
+{% endblock %}
+
+{% block contentSec4 %}
+
+{% endblock %}
+
+
+<!-- CTA -->
+
+{% block cta %}
+
+{% endblock %}
+
+<!-- Footer -->
+
+{% block footer %}
+
+{% endblock %}

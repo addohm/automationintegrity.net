@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- https://docs.djangoproject.com/en/1.11/topics/auth/default/ -->
+<!-- Head -->
+
+{% block head %}
+   <link rel="stylesheet" href="{% static "css/report_form.css" %}" type="text/css" />
+
+   <title>Automation Integrity - Service Report Detail</title>
+{% endblock %}
+
+<!-- Header -->
+{% block headerMessage %}
+   <li class="current">
+      <a href=" {% url 'main' %} ">Return to Home Page</a>
+   </li>
+{% endblock %}
+{% block headerMenu %}
+{% endblock %}
+{% block banner %}
+{% endblock %}
+
+<!-- Main -->
+{% block mainHeader %}
+{% endblock %}
+   {% block contentSec1 %}
+   <section class="wrapper style4 special container 75%">
+      <h3>Service Report - {{ object.site }}</h3>
+      <!-- Content -->
+      <div class="content">
+            <form>
+                <fieldset>
+                    {% if object.request_number %}
+              <div class="form-row">
+                  <div class="form-group col-md-6 form-col-md form-col-left-just">
+                      <label for="{{ object.request_number.id_for_label }}"><Strong>Request Number</Strong></label>
+                    {{ object.request_number }}
+                  </div>
+              </div>
+          {% endif %}
+          <div class="form-row">
+            <div class="form-group col-md-6 form-col-md form-col-left-just">
+              <label for="{{ object.reported_by.id_for_label }}"><Strong>Reported By</Strong></label>
+              <input type="text" id="{{ object.reported_by.id_for_label }}" class="form-control" value="{{ object.reported_by }}" readonly>
+            </div>
+            <div class="form-group col-md-6 form-col-md form-col-right-just">
+              <label for="{{ object.reported_date.id_for_label }}"><Strong>Date Reported</Strong></label>
+                <input type="text" id="{{ object.reported_date.id_for_label }}" class="form-control" value="{{ object.reported_date }}" readonly>
+            </div>
+          </div>
+        {% if object.updated_date %}
+         <div class="form-row">
+            <div class="form-group col-md-6 form-col-md form-col-left-just">
+              <label for="{{ object.updated_by.id_for_label }}"><Strong>Updated By</Strong></label>
+              <input type="text" id="{{ object.updated_by.id_for_label }}" class="form-control" value="{{ object.updated_by }}" readonly>
+            </div>
+            <div class="form-group col-md-6 form-col-md form-col-right-just">
+              <label for="{{ object.updated_date.id_for_label }}"><Strong>Date Updated</Strong></label>
+                <input type="text" id="{{ object.updated_date.id_for_label }}" class="form-control" value="{{ object.updated_date }}" readonly>
+            </div>
+          </div>
+        {% endif %}
+
+
+          <div class="form-group">
+              <label for="{{ object.equipment.id_for_label }}"><Strong>Equipment</Strong></label>
+              <input type="text" id="{{ object.equipment.id_for_label }}" class="form-control" value="{{  object.equipment }}" readonly>
+          </div>
+          <div class="form-group">
+              <label for="{{ object.report_reason.id_for_label }}"><Strong>Report Reason</Strong></label>
+              <input type="text" id="{{ object.report_reason.id_for_label }}" class="form-control" value="{{  object.report_reason }}" readonly>
+          </div>
+
+
+           <div class="form-row">
+            <div class="form-group col-md-6 form-col-md form-col-left-just">
+              <label for="{{ object.time_in.id_for_label }}"><Strong>Time in</Strong></label>
+              <input type="text" id="{{ object.time_in.id_for_label }}" class="form-control" value="{{ object.time_in }}" readonly>
+            </div>
+            <div class="form-group col-md-6 form-col-md form-col-right-just">
+              <label for="{{ object.time_out.id_for_label }}"><Strong>Time out</Strong></label>
+                <input type="text" id="{{ object.time_out.id_for_label }}" class="form-control" value="{{ object.time_out }}" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+              <label for="{{ object.actions_taken.id_for_label }}"><Strong>Actions Taken</Strong></label>
+              <input type="text" id="{{ object.actions_taken.id_for_label }}" class="form-control" value="{{ object.actions_taken }}" readonly>
+          </div>
+          <div class="form-group">
+              <label for="{{ object.recommendations.id_for_label }}"><Strong>Recommendations</Strong></label>
+              <input type="text" id="{{ object.recommendations.id_for_label }}" class="form-control" value="{{ object.recommendations }}" readonly>
+          </div>
+
+
+
+
+            </fieldset>
+        </form>
+
+
+      </div>
+   </section>
+{% endblock %} 
+{% block contentSec2 %}
+{% endblock %}
+{% block contentSec3 %}
+{% endblock %}
+{% block contentSec4 %}
+{% endblock %}
+
+
+<!-- CTA -->
+
+{% block cta %}
+{% endblock %}
+
+<!-- Footer -->
+
+{% block footer %}
+{% endblock %}

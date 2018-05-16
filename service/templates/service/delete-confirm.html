@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- https://docs.djangoproject.com/en/1.11/topics/auth/default/ -->
+<!-- Head -->
+
+{% block head %}
+   <title>Automation Integrity - Service Report Form</title>
+{% endblock %}
+
+<!-- Header -->
+{% block headerMessage %}
+   <li class="current">
+      <a href=" {% url 'main' %} ">Return to Home Page</a>
+   </li>
+{% endblock %}
+{% block headerMenu %}
+{% endblock %}
+{% block banner %}
+{% endblock %}
+
+<!-- Main -->
+{% block mainHeader %}
+{% endblock %}
+   {% block contentSec1 %}
+   <section class="wrapper style4 special container 75%">
+      <h3>Service Report</h3>
+      <!-- Content -->
+      <div class="content">
+          <form method="POST" action="">
+            {% csrf_token %}
+            <div class="row 25%">
+                <h3>Are you sure you want to delete: {{ object }}?</h3>
+            </div>
+          <button type="submit" class="btn btn-danger">Confirm</button>
+          </form>
+      </div>
+   </section>
+{% endblock %}
+{% block contentSec2 %}
+{% endblock %}
+{% block contentSec3 %}
+{% endblock %}
+{% block contentSec4 %}
+{% endblock %}
+
+
+<!-- CTA -->
+
+{% block cta %}
+{% endblock %}
+
+<!-- Footer -->
+
+{% block footer %}
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- https://docs.djangoproject.com/en/1.11/topics/auth/default/ -->
+<!-- Head -->
+
+{% block head %}
+   <title>Automation Integrity - Consultation Request Form</title>
+{% endblock %}
+
+<!-- Header -->
+{% block headerMessage %}
+   <li class="current">
+      <a href=" {% url 'main' %} ">Return to Home Page</a>
+   </li>
+{% endblock %}
+{% block headerMenu %}
+{% endblock %}
+{% block banner %}
+{% endblock %}
+
+<!-- Main -->
+{% block mainHeader %}
+{% endblock %}
+   {% block contentSec1 %}
+   <section class="wrapper style4 special container 75%">
+      <h3>Service Request</h3>
+      <!-- Content -->
+      <div class="content">
+         {% if form.errors %}
+         <p class="errornote">
+            {% if form.errors.items|length == 1 %}Please correct the error below.{% else %}Please correct the errors below.{% endif %}
+         </p>
+         {% endif %}
+         <form method="POST" action="{% url 'password_reset' %}">
+            <!-- Enter the url here -->
+            {% csrf_token %}
+            <div class="row 25%">
+               {% for field in form %} {% for error in field.errors %}
+               <div class="12u">
+                  <div class="alert alert-danger">{{error}}</div>
+               </div>
+               {% endfor %}
+               <div class="3u 12u">
+                  {{ field.label_tag }}
+               </div>
+               <div class="9u 12u">
+                  {{ field }}
+               </div>
+               {% if field.help_text %}
+               <div class="12u">
+                  <sup>{{ field.help_text|safe }}</sup>
+               </div>
+               {% endif %} {% endfor %}
+            </div>
+            <div class="row 50%">
+               <div class="12u">
+                  <ul class="buttons">
+                     <li>
+                        <input type="submit" class="special" value="Request Reset" />
+                     </li>
+                     <li>
+                        <input type="hidden" name="next" value="{{ next }}" />
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </form>
+      </div>
+
+   </section>
+{% endblock %} 
+{% block contentSec2 %}
+{% endblock %}
+{% block contentSec3 %}
+{% endblock %}
+{% block contentSec4 %}
+{% endblock %}
+
+
+<!-- CTA -->
+
+{% block cta %}
+{% endblock %}
+
+<!-- Footer -->
+
+{% block footer %}
+{% endblock %}
