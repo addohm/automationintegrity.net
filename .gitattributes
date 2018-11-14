@@ -17,33 +17,33 @@
 
 ## SOURCE CODE
 *.bat      text eol=crlf
-*.coffee   text
+*.coffee   text linguist-detectable=false
 *.css      text linguist-detectable=false
-*.htm      text
-*.html     text
-*.inc      text
-*.ini      text
+*.htm      text linguist-detectable=false
+*.html     text linguist-detectable=false
+*.inc      text linguist-detectable=false
+*.ini      text linguist-detectable=false
 *.js       text linguist-detectable=false
 *.json     text linguist-detectable=false
 *.jsx      text linguist-detectable=false
-*.less     text
-*.od       text
-*.onlydata text
-*.php      text
-*.pl       text
+*.less     text linguist-detectable=false
+*.od       text linguist-detectable=false
+*.onlydata text linguist-detectable=false
+*.php      text linguist-detectable=false
+*.pl       text linguist-detectable=false
 *.py       text
-*.rb       text
-*.sass     text
-*.scm      text
-*.scss     text
+*.rb       text linguist-detectable=false
+*.sass     text linguist-detectable=false
+*.scm      text linguist-detectable=false
+*.scss     text linguist-detectable=false
 *.sh       text eol=lf
-*.sql      text
-*.styl     text
-*.tag      text
-*.ts       text
-*.tsx      text
-*.xml      text
-*.xhtml    text
+*.sql      text linguist-detectable=false
+*.styl     text linguist-detectable=false
+*.tag      text linguist-detectable=false
+*.ts       text linguist-detectable=false
+*.tsx      text linguist-detectable=false
+*.xml      text linguist-detectable=false
+*.xhtml    text linguist-detectable=false
 
 ## DOCKER
 *.dockerignore    text
