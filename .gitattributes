@@ -23,9 +23,9 @@
 *.html     text
 *.inc      text
 *.ini      text
-*.js       text
-*.json     text
-*.jsx      text
+*.js       text linguist-detectable=false
+*.json     text linguist-detectable=false
+*.jsx      text linguist-detectable=false
 *.less     text
 *.od       text
 *.onlydata text
