@@ -38,7 +38,7 @@ class SiteDetailView(DetailView):
 
 
 def relative_distance(request, *args, **kwargs):
-        gmaps = googlemaps.Client(key='AIzaSyDSiwSu6cAnWwl-5bIERooeke-ELqVvkss')
+        gmaps = googlemaps.Client(key='')
         origin = 'quincy, ma'
         destination = 'lowell, ma'
         template_name = 'maps.html'
